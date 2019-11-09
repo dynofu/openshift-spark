@@ -84,3 +84,21 @@ test-e2e-py:
 test-e2e-py36:
 	LOCAL_IMAGE=$(OPENSHIFT_SPARK_TEST_IMAGE) make build-py36
 	SPARK_TEST_IMAGE=$(OPENSHIFT_SPARK_TEST_IMAGE)-py36 test/run.sh completed/
+
+# ------------------------------------------------------------------------------
+ifndef VIRTUAL_ENV
+WITH_VENV := pipenv run
+else
+WITH_VENV :=
+endif
+
+BUILDER := docker
+
+pipenv-install:
+	pipenv install --dev
+
+cekit-build:
+	$(WITH_VENV) cekit --verbose build $(BUILDER)
+
+soit:
+	soit --image $(SPARK_IMAGE) --tag $$(yq -r '.version' image.yaml) --verbose

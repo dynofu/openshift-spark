@@ -1,5 +1,14 @@
 schema_version: 1
 
 name: common
+version: 2019.11.9
+packages:
+    manager: dnf
+    install:
+        - java-1.8.0-openjdk
+        - wget
+envs:
+    - name: SPARK_INSTALL
+      value: /opt/spark-install
 execute:
     - script: install

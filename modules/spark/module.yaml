@@ -1,5 +1,28 @@
 schema_version: 1
 
 name: spark
+version: 2019.11.9
+artifacts:
+    - name: spark
+      url: https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
+      md5: 2b190cb07becf3868a16690b4a123c42
+      target: spark-2.4.4-bin-hadoop2.7.tgz
+    - name: kubernetes-client-jar
+      url: https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.4.2/kubernetes-client-4.4.2.jar
+      md5: c6f9d508152aeecf204285328f73e56d
+      target: kubernetes-client-4.4.2.jar
+    - name: kubernetes-model-common-jar
+      url: https://repo1.maven.org/maven2/io/fabric8/kubernetes-model-common/4.4.2/kubernetes-model-common-4.4.2.jar
+      md5: 6be52d85b4dfd2104eecb58c140a1f82
+      target: kubernetes-model-common-4.4.2.jar
+    - name: kubernetes-model-jar
+      url: https://repo1.maven.org/maven2/io/fabric8/kubernetes-model/4.4.2/kubernetes-model-4.4.2.jar
+      md5: 971d9890c6207c8100978fed91389269
+      target: kubernetes-model-4.4.2.jar
+envs:
+    - name: SPARK_HOME
+      value: /opt/spark
+    - name: SPARK_INSTALL
+      value: /opt/spark-install
 execute:
     - script: install

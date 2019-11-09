@@ -1,5 +1,9 @@
 schema_version: 1
 
 name: s2i
+version: 2019.11.9
+envs:
+    - name: STI_SCRIPTS_PATH
+      value: /usr/libexec/s2i
 execute:
     - script: install

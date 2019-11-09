@@ -1,0 +1,17 @@
+[packages]
+cekit = "*"
+click = "*"
+colorlog = "*"
+docker-squash = "*"
+Jinja2 = "*"
+odcs = "*"
+pykwalify = "*"
+PyYAML = "*"
+
+[dev-packages]
+conu = "*"
+soit = "*"
+yq = "*"
+
+[requires]
+python_version = "3.6"

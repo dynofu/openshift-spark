@@ -7,12 +7,12 @@ schema_version: 1
 version: 2.4-latest
 release: community
 name: radanalyticsio/openshift-spark
-from: centos:latest
+from: centos:7
 labels:
     - name: maintainer
       value: Chad Roberts <croberts@redhat.com>
     - name: sparkversion
-      value: 2.4.0
+      value: 2.4.4
     - name: "io.openshift.s2i.scripts-url"
       value: "image:///usr/libexec/s2i"
 envs:
@@ -25,20 +25,16 @@ envs:
     - name: STI_SCRIPTS_PATH
       value: /usr/libexec/s2i
     - name: SCL_ENABLE_CMD
-      value: ""
+      value: "scl enable rh-python36"
 modules:
+    repositories:
+        - name: local
+          path: modules
     install:
         - name: common
         - name: metrics
-        - name: spark
         - name: s2i
-packages:
-    install:
-        - java-1.8.0-openjdk
-        - wget
-artifacts:
-    - url: https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
-      md5: c1a230474c21335c983f45e84dcf8fb9
+        - name: spark
 run:
     user: 185
     entrypoint:
