@@ -20,12 +20,10 @@ envs:
       value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/spark/bin
     - name: SPARK_HOME
       value: /opt/spark
-    - name: SPARK_INSTALL
-      value: /opt/spark-distro
     - name: STI_SCRIPTS_PATH
       value: /usr/libexec/s2i
     - name: SCL_ENABLE_CMD
-      value: "scl enable rh-python36"
+      value: ""
 modules:
     repositories:
         - name: local
